@@ -49,10 +49,18 @@ Best model achieved:
 Model performance is limited by high variability in environmental data and missing external influencing factors.
 
 ## Project Structure
-- `notebooks/`: Exploratory analysis and model development
-- `src/`: Modular pipeline components
-- `data/`: Raw and processed datasets
-- `results/`: Model outputs and plots
+air-quality-prediction/
+│
+├── README.md
+├── requirements.txt
+│
+├── data/
+│   ├── final_dataset2.csv
+│   └── processed_data.csv
+│
+└── notebooks/
+    ├── Data_analysis.ipynb
+    └── ML_models.ipynb
 
 ## How to run
 1. install Dependencies:
