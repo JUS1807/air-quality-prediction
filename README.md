@@ -15,26 +15,38 @@ The goal is to model and predict monthly PM2.5 levels based on weather and locat
 - Airport data (ourairports)
 - Demographic data (Demographia World Urban Areas)
 - Congestion data (openstreetmap & TomTom)
+- Vegetation index (Google Earth Engine)
+- Energy data (Ember Energy)
+
+Two datasets are included in this repository:
+- `final_dataset2.csv` → raw integrated dataset used for analysis  
+- `processed_data.csv` → cleaned and processed dataset used for modeling  
 
 The final dataset is aggregated on a monthly level.
 
 ## Methodology
-- Data collection and integration from multiple APIs
-- Data cleaning and preprocessing
-- Feature engineering
-- City-based train/test split (to avoid data leakage)
-- Model training and comparison
-- Evaluation using R² score
+The project follows a two-step workflow:
+1. **Exploratory Data Analysis (EDA)**
+   - Data inspection and cleaning
+   - Type conversion and validation
+   - Initial feature exploration
+
+2. **Modeling**
+   - Feature preparation
+   - City-based train/test split (to avoid data leakage)
+   - Training and comparison of multiple regression models
+   - Evaluation using R²
 
 ## Models
 - Linear Regression
 - Random Forest
 - Gradient Boosting
-- MLP
+- Multi-Layer-Perceptron (MLP)
 
 ## Results
 Best model achieved:
 - R² ≈ 0.6
+Model performance is limited by high variability in environmental data and missing external influencing factors.
 
 ## Project Structure
 - `notebooks/`: Exploratory analysis and model development
@@ -43,6 +55,18 @@ Best model achieved:
 - `results/`: Model outputs and plots
 
 ## How to run
-```bash
-pip install -r requirements.txt
-python src/train.py
+1. install Dependencies:
+  bash
+  pip install -r requirements.txt
+  python src/train.py
+
+2. Run the notebooks in the following order:
+   * notebooks/Data_analysis.ipynb
+    → performs exploratory data analysis on final_dataset2.csv
+   * notebooks/ML_models.ipynb
+    → trains and evaluates models using processed_data.csv
+
+## Key Learnings
+* Integration of heterogeneous environmental data sources
+* Importance of spatial data splitting (city-based) to avoid leakage
+* Limitations of classical ML models under real-world data constraints
