@@ -113,7 +113,6 @@ air-quality-prediction/
 ## How to run
 1. install Dependencies:
 ```
-bash
 pip install -r requirements.txt
 ```
 2. Run the notebooks in the following order:
